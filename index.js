@@ -1,6 +1,12 @@
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
+  fetch('https://anapioficeandfire.com/api/books')
+    .then(function (response) {
+    return response.json();
+  })
+    .then(function (json) {
+    return renderBooks(json);
+    })
+  return fetch('https://anapioficeandfire.com/api/books')
 }
 
 function renderBooks(books) {
@@ -15,3 +21,8 @@ function renderBooks(books) {
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks();
 });
+
+// NOTE: The tests in this lab need to access the fetch() 
+// request you will create inside fetchBooks(). 
+// In order to give them access, write your solution so that fetchBooks() 
+// returns the fetch().This will not change the behavior of your fetch().
